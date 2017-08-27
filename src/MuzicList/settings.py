@@ -136,3 +136,15 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
+
+# EMAIL_BACKEND added for after signup connection error workaround
+# go to link below and search for "When I sign up I run into connectivity errors"
+# http://django-allauth.readthedocs.io/en/latest/faq.html 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#LOGIN_REDIRECT_URL is required 
+#because after you login url redirect you to accouts/profile
+#which is not in allauth default so you need to either create accounts/profile view 
+#or redirect you to somewhere else..  so 
+#below LOGIN_REDIRECT_URL will redirect it to main page with login
+LOGIN_REDIRECT_URL = '/'
