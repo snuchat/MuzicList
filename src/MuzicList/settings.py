@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'allauth.socialaccount.providers.kakao',
     'tubelist',
+    'myaccount',
 ]
 
 
@@ -148,3 +149,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #or redirect you to somewhere else..  so 
 #below LOGIN_REDIRECT_URL will redirect it to main page with login
 LOGIN_REDIRECT_URL = '/'
+ACCOUNT_SIGNUP_FORM_CLASS = 'myaccount.forms.SignupForm'
