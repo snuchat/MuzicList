@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 # Create your models here.
@@ -29,7 +30,7 @@ from django.db import models
 # 		return self.verified
 
 class DJMusicList(models.Model):
-	DJ_name		= models.CharField(max_length=50)
+	DJ_name		= models.ForeignKey(settings.AUTH_USER_MODEL)
 	ListName	= models.CharField(max_length=100)
 	Desc		= models.TextField(max_length=300)
 	# list_1		= models.ForeignKey(VerifiedYoutubeURL, on_delete=models.SET_NULL, related_name="djmusiclist_1", null=True)
