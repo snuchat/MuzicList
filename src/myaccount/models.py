@@ -1,9 +1,12 @@
+from django.conf import settings
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 # Create your models here.
 
 class UserProfile(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+	#it is not wise to user User model directly from django.contrib.auth.models 
+	#it is wise to user this way
+	user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
 	nickname = models.CharField(max_length=30, unique=True)
 
 	def __str__(self):
