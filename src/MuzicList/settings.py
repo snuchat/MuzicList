@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'allauth.socialaccount.providers.kakao',
+    'allauth.socialaccount.providers.naver',
     'tubelist',
     'myaccount',
 ]
@@ -142,6 +143,20 @@ SITE_ID = 1
 # go to link below and search for "When I sign up I run into connectivity errors"
 # http://django-allauth.readthedocs.io/en/latest/faq.html 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# More Email settings for email verification.
+
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_HOST_USER = 'yourgmailname@gmail.com'
+# EMAIL_HOST_PASSWORD = 'your-gmail-password'
+# EMAIL_PORT = 587
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
 
 #LOGIN_REDIRECT_URL is required 
 #because after you login url redirect you to accouts/profile
