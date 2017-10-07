@@ -169,10 +169,15 @@ ACCOUNT_SIGNUP_FORM_CLASS = 'myaccount.forms.SignupForm'
 #or redirect you to somewhere else..  so 
 #below LOGIN_REDIRECT_URL will redirect it to main page with login
 LOGIN_REDIRECT_URL = '/'
+
 SOCIALACCOUNT_AUTO_SIGNUP = False
 # SOCIALACCOUNT_FORMS = {'signup': 'myaccount.forms.SocialCustomSignupForm'}
 
-
+# usually logout is two step 
+# 1. click to logout 2. ask you again to really logout 3. loged out
+# this option make it one step
+# 1. click to logout 2. you are logged out
+ACCOUNT_LOGOUT_ON_GET = True
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

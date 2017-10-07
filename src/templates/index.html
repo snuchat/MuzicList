@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 {% load account socialaccount %}
 {% user_display user %}
 
@@ -13,4 +14,5 @@ nickname : {{ user.profile.nickname }}
 <li><a href="{% url 'account_login' %}">Sign In</a></li>
 <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
 {% endif %}
+
 {% endblock content %}
