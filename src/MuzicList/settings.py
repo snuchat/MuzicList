@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-    'allauth.socialaccount.providers.kakao',
-    'allauth.socialaccount.providers.naver',
+    # 'allauth.socialaccount.providers.kakao',
+    # 'allauth.socialaccount.providers.naver',
+    'allauth.socialaccount.providers.google',
     'tubelist',
     'myaccount',
 ]
@@ -145,7 +146,6 @@ SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # More Email settings for email verification.
-
 # ACCOUNT_EMAIL_REQUIRED = True
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -156,7 +156,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_PORT = 587
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-
+#for google account we decide not to user username field in the default user_model
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 #LOGIN_REDIRECT_URL is required 
 #because after you login url redirect you to accouts/profile
@@ -165,3 +169,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #below LOGIN_REDIRECT_URL will redirect it to main page with login
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_SIGNUP_FORM_CLASS = 'myaccount.forms.SignupForm'
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
