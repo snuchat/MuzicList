@@ -159,8 +159,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #for google account we decide not to user username field in the default user_model
 # ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_SIGNUP_FORM_CLASS = 'myaccount.forms.SignupForm'
 
 #LOGIN_REDIRECT_URL is required 
 #because after you login url redirect you to accouts/profile
@@ -168,7 +169,9 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 #or redirect you to somewhere else..  so 
 #below LOGIN_REDIRECT_URL will redirect it to main page with login
 LOGIN_REDIRECT_URL = '/'
-# ACCOUNT_SIGNUP_FORM_CLASS = 'myaccount.forms.SignupForm'
+SOCIALACCOUNT_AUTO_SIGNUP = False
+# SOCIALACCOUNT_FORMS = {'signup': 'myaccount.forms.SocialCustomSignupForm'}
+
 
 
 SOCIALACCOUNT_PROVIDERS = {
