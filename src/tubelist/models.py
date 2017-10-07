@@ -33,7 +33,7 @@ class DJMusicList(models.Model):
 	dj_name		= models.ForeignKey(settings.AUTH_USER_MODEL)
 	listName	= models.CharField(max_length=100)
 	description	= models.TextField(max_length=300)
-	category	= models.CharField(max_length=50)
+	category	= models.CharField(max_length=50, null=True)
 	# list_1		= models.ForeignKey(VerifiedYoutubeURL, on_delete=models.SET_NULL, related_name="djmusiclist_1", null=True)
 	# list_2		= models.ForeignKey(VerifiedYoutubeURL, on_delete=models.SET_NULL, related_name="djmusiclist_2", null=True)
 	# list_3		= models.ForeignKey(VerifiedYoutubeURL, on_delete=models.SET_NULL, related_name="djmusiclist_3", null=True)
