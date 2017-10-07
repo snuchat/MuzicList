@@ -8,6 +8,7 @@ class UserProfile(models.Model):
 	#it is wise to user this way
 	user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
 	nickname = models.CharField(max_length=30, unique=True)
+	is_premium = models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.nickname
